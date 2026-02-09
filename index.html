@@ -7,5 +7,16 @@
   <body>
     <h1>Miniapp Lab</h1>
     <p>Learning onchain development on Base.</p>
+
+    <button id="connectBtn">Connect Wallet</button>
+
+    <script>
+      const button = document.getElementById("connectBtn");
+
+      button.addEventListener("click", () => {
+        console.log("Connect Wallet button clicked");
+        alert("Button works. Next step: wallet connection.");
+      });
+    </script>
   </body>
 </html>
