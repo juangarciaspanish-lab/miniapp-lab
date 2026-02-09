@@ -1,39 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Miniapp Lab</title>
-  </head>
-  <body>
-    <h1>Miniapp Lab</h1>
-    <p>Learning onchain development on Base.</p>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Miniapp Lab</title>
+</head>
+<body>
+  <h1>Miniapp Lab</h1>
+  <p>Learning onchain development on Base.</p>
 
-    <button id="connectBtn">Connect Wallet</button>
+  <button id="connectBtn">Connect Wallet</button>
 
-    <p id="address"></p>
+  <p id="status"></p>
 
-    <script>
-      const button = document.getElementById("connectBtn");
-      const addressEl = document.getElementById("address");
-
-      button.addEventListener("click", async () => {
-        if (typeof window.ethereum === "undefined") {
-          alert("MetaMask not found. Please install MetaMask.");
-          return;
-        }
-
-        try {
-          const accounts = await window.ethereum.request({
-            method: "eth_requestAccounts",
-          });
-
-          const address = accounts[0];
-          addressEl.innerText = "Connected wallet: " + address;
-          console.log("Connected wallet:", address);
-        } catch (error) {
-          console.error("User rejected connection", error);
-        }
-      });
-    </script>
-  </body>
-</html>
+  <script>
+    const button = document.getElementById("connectBtn");
+    const status = docu
