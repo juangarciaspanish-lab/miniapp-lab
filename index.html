@@ -10,12 +10,29 @@
 
     <button id="connectBtn">Connect Wallet</button>
 
+    <p id="address"></p>
+
     <script>
       const button = document.getElementById("connectBtn");
+      const addressEl = document.getElementById("address");
 
-      button.addEventListener("click", () => {
-        console.log("Connect Wallet button clicked");
-        alert("Button works. Next step: wallet connection.");
+      button.addEventListener("click", async () => {
+        if (typeof window.ethereum === "undefined") {
+          alert("MetaMask not found. Please install MetaMask.");
+          return;
+        }
+
+        try {
+          const accounts = await window.ethereum.request({
+            method: "eth_requestAccounts",
+          });
+
+          const address = accounts[0];
+          addressEl.innerText = "Connected wallet: " + address;
+          console.log("Connected wallet:", address);
+        } catch (error) {
+          console.error("User rejected connection", error);
+        }
       });
     </script>
   </body>
